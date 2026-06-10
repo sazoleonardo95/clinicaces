@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Centro Especializado en Sonrisas - Clínica dental en Linares. Ortodoncia, implantes, blanqueamiento y más. Agenda tu hora.">
+    <title>Clínica CES - Centro Especializado en Sonrisas | Linares</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --azul-profundo: #0A1628;
+            --azul-medio: #1a2d4a;
+            --turquesa: #00D4AA;
+            --turquesa-claro: #00F5C8;
+            --blanco: #ffffff;
+            --gris-claro: #f8f9fa;
+            --gris-medio: #e9ecef;
+            --texto-oscuro: #2d3748;
+            --sombra: 0 10px 40px rgba(0, 212, 170, 0.15);
+            --sombra-hover: 0 20px 60px rgba(0, 212, 170, 0.25);
+            --gradiente-hero: linear-gradient(135deg, #0A1628 0%, #1a3a5c 50%, #0d4a4a 100%);
+            --gradiente-turquesa: linear-gradient(135deg, #00D4AA 0%, #00F5C8 100%);
+            --radio: 16px;
+            --transicion: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            transition: var(--transicion);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradiente-turquesa);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--azul-profundo);
+        }
+
+        .nav-logo-text {
+            color: var(--blanco);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .nav-logo-text span {
+            color: var(--turquesa);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-menu a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transicion);
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--turquesa);
+            transition: var(--transicion);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--turquesa);
+        }
+
+        .nav-cta {
+            background: var(--gradiente-turquesa);
+            color: var(--azul-profundo) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            transition: var(--transicion);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .nav-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--blanco);
+            border-radius: 3px;
+            transition: var(--transicion);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradiente-hero);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(0, 212, 170, 0.15) 0%, transparent 70%);
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(0, 245, 200, 0.1) 0%, transparent 70%);
+            animation: pulse-glow 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            color: var(--blanco);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 212, 170, 0.15);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--turquesa);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge i {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-title span {
+            background: var(--gradiente-turquesa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 36px;
+            max-width: 500px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transicion);
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradiente-turquesa);
+            color: var(--azul-profundo);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 170, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--blanco);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--turquesa);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInRight 1s ease 0.4s both;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradiente-turquesa);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 212, 170, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 212, 170, 0.1);
+            transition: var(--transicion);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--turquesa);
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* SERVICIOS */
+        .servicios {
+            padding: 100px 0;
+            background: var(--gris-claro);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 212, 170, 0.1);
+            color: var(--turquesa);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--azul-profundo);
+            margin-bottom: 16px;
+        }
+
+        .section-title span {
+            color: var(--turquesa);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .servicio-card {
+            background: var(--blanco);
+            border-radius: var(--radio);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transicion);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+
+        .servicio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradiente-turquesa);
+            transform: scaleX(0);
+            transition: var(--transicion);
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-hover);
+            border-color: rgba(0, 212, 170, 0.2);
+        }
+
+        .servicio-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .servicio-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 245, 200, 0.1) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2rem;
+            color: var(--turquesa);
+            transition: var(--transicion);
+        }
+
+        .servicio-card:hover .servicio-icon {
+            background: var(--gradiente-turquesa);
+            color: var(--azul-profundo);
+            transform: rotateY(180deg);
+        }
+
+        .servicio-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin-bottom: 12px;
+        }
+
+        .servicio-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* PROMOCIONES */
+        .promociones {
+            padding: 100px 0;
+            background: var(--azul-profundo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promociones::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.05) 0%, transparent 70%);
+        }
+
+        .promociones .section-title {
+            color: var(--blanco);
+        }
+
+        .promociones .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .promos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .promo-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radio);
+            padding: 32px;
+            transition: var(--transicion);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradiente-turquesa);
+        }
+
+        .promo-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 212, 170, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+        }
+
+        .promo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .promo-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--blanco);
+        }
+
+        .promo-price {
+            background: var(--gradiente-turquesa);
+            color: var(--azul-profundo);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .promo-features {
+            list-style: none;
+        }
+
+        .promo-features li {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .promo-features li i {
+            color: var(--turquesa);
+            font-size: 0.8rem;
+        }
+
+        .promo-cta {
+            display: block;
+            text-align: center;
+            margin-top: 24px;
+            padding: 12px;
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: 10px;
+            color: var(--turquesa);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transicion);
+        }
+
+        .promo-cta:hover {
+            background: var(--gradiente-turquesa);
+            color: var(--azul-profundo);
+        }
+
+        /* NOSOTROS */
+        .nosotros {
+            padding: 100px 0;
+            background: var(--blanco);
+        }
+
+        .nosotros-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .nosotros-visual {
+            position: relative;
+        }
+
+        .nosotros-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-medio) 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nosotros-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 212, 170, 0.2) 0%, transparent 50%);
+        }
+
+        .nosotros-image i {
+            font-size: 8rem;
+            color: var(--turquesa);
+            opacity: 0.3;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nosotros-float-card {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            background: var(--blanco);
+            border-radius: 16px;
+            padding: 24px 32px;
+            box-shadow: var(--sombra);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nosotros-float-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradiente-turquesa);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--azul-profundo);
+        }
+
+        .nosotros-float-text strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--azul-profundo);
+        }
+
+        .nosotros-float-text span {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .nosotros-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--azul-profundo);
+            margin-bottom: 24px;
+        }
+
+        .nosotros-text h2 span {
+            color: var(--turquesa);
+        }
+
+        .nosotros-text p {
+            color: #6b7280;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .nosotros-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .nosotros-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--gris-claro);
+            border-radius: 12px;
+            transition: var(--transicion);
+        }
+
+        .nosotros-feature:hover {
+            background: rgba(0, 212, 170, 0.1);
+            transform: translateX(5px);
+        }
+
+        .nosotros-feature i {
+            color: var(--turquesa);
+            font-size: 1.2rem;
+        }
+
+        .nosotros-feature span {
+            font-weight: 600;
+            color: var(--azul-profundo);
+            font-size: 0.95rem;
+        }
+
+        /* EQUIPO */
+        .equipo {
+            padding: 100px 0;
+            background: var(--gris-claro);
+        }
+
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .equipo-card {
+            background: var(--blanco);
+            border-radius: var(--radio);
+            overflow: hidden;
+            transition: var(--transicion);
+            text-align: center;
+        }
+
+        .equipo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .equipo-photo {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-medio) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .equipo-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 212, 170, 0.15) 0%, transparent 60%);
+        }
+
+        .equipo-photo i {
+            font-size: 5rem;
+            color: var(--turquesa);
+            opacity: 0.5;
+            position: relative;
+            z-index: 2;
+        }
+
+        .equipo-info {
+            padding: 24px;
+        }
+
+        .equipo-info h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin-bottom: 8px;
+        }
+
+        .equipo-info p {
+            color: var(--turquesa);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* CONTACTO */
+        .contacto {
+            padding: 100px 0;
+            background: var(--blanco);
+        }
+
+        .contacto-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contacto-info h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--azul-profundo);
+            margin-bottom: 16px;
+        }
+
+        .contacto-info h2 span {
+            color: var(--turquesa);
+        }
+
+        .contacto-info > p {
+            color: #6b7280;
+            font-size: 1.05rem;
+            margin-bottom: 32px;
+        }
+
+        .contacto-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--gris-claro);
+            border-radius: 12px;
+            transition: var(--transicion);
+        }
+
+        .contacto-item:hover {
+            background: rgba(0, 212, 170, 0.1);
+            transform: translateX(5px);
+        }
+
+        .contacto-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradiente-turquesa);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--azul-profundo);
+            flex-shrink: 0;
+        }
+
+        .contacto-item-text strong {
+            display: block;
+            color: var(--azul-profundo);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .contacto-item-text span {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .contacto-form {
+            background: var(--gris-claro);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .contacto-form h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--azul-profundo);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--gris-medio);
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transicion);
+            background: var(--blanco);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--turquesa);
+            box-shadow: 0 0 0 4px rgba(0, 212, 170, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradiente-turquesa);
+            color: var(--azul-profundo);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transicion);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4);
+        }
+
+        /* MAPA */
+        .mapa {
+            width: 100%;
+            height: 400px;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .mapa iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--azul-profundo);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 16px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            transition: var(--transicion);
+        }
+
+        .footer-social a:hover {
+            background: var(--turquesa);
+            color: var(--azul-profundo);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            color: var(--blanco);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transicion);
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--turquesa);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* WHATSAPP FLOTANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            transition: var(--transicion);
+            z-index: 999;
+            animation: whatsapp-pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes whatsapp-pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4), 0 0 0 15px rgba(37, 211, 102, 0.1); }
+        }
+
+        /* SCROLL REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                margin: 0 auto 36px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .nosotros-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nosotros-float-card {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: 20px;
+                display: inline-flex;
+            }
+
+            .contacto-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--azul-profundo);
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                transition: var(--transicion);
+                gap: 20px;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .nosotros-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .promo-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <i class="fas fa-tooth"></i>
+                </div>
+                <div class="nav-logo-text">Clínica <span>CES</span></div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#promociones">Promociones</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="https://wa.me/56920157657" class="nav-cta">Agendar Hora</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i>
+                        Centro Especializado en Sonrisas
+                    </div>
+                    <h1 class="hero-title">
+                        Tu sonrisa puede <span>cambiarlo todo</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Atención odontológica cercana, honesta y de calidad en el corazón de Linares. Más de 10 años de experiencia transformando sonrisas.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/56920157657?text=Hola,%20quiero%20agendar%20una%20hora" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i> Agendar por WhatsApp
+                        </a>
+                        <a href="tel:+56920157657" class="btn btn-secondary">
+                            <i class="fas fa-phone"></i> Llamar Ahora
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="10">0</span>
+                                <span class="stat-label">Años de Experiencia</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="5000">0</span>
+                                <span class="stat-label">Pacientes Atendidos</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="8">0</span>
+                                <span class="stat-label">Especialidades</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="98">0</span>
+                                <span class="stat-label">% Satisfacción</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="servicios" id="servicios">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">
+                    <i class="fas fa-tooth"></i>
+                    Nuestros Servicios
+                </div>
+                <h2 class="section-title">Especialidades <span>Dentales</span></h2>
+                <p class="section-subtitle">Ofrecemos la mayoría de las especialidades dentales con tecnología de vanguardia y un equipo experimentado.</p>
+            </div>
+            <div class="servicios-grid">
+                <div class="servicio-card reveal">
+                    <div class="servicio-icon">
+                        <i class="fas fa-teeth"></i>
+                    </div>
+                    <h3>Ortodoncia</h3>
+                    <p>Brackets metálicos y estéticos. Corrige la posición de tus dientes y logra una sonrisa armónica y funcional.</p>
+                </div>
+                <div class="servicio-card reveal">
+                    <div class="servicio-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>Implantes Dentales</h3>
+                    <p>Recupera tus dientes perdidos con implantes de titanio de alta calidad. Solución fija y duradera.</p>
+                </div>
+                <div class="servicio-card reveal">
+                    <div class="servicio-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Blanqueamiento</h3>
+                    <p>Devuelve el brillo natural a tu sonrisa con nuestro tratamiento profesional de blanqueamiento dental.</p>
+                </div>
+                <div class="servicio-card reveal">
+                    <div class="servicio-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3>Carillas Dentales</h3>
+                    <p>Corrige color, forma y tamaño de tus dientes. Transforma tu sonrisa en pocas sesiones.</p>
+                </div>
+                <div class="servicio-card reveal">
+                    <div class="servicio-icon">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <h3>Endodoncia</h3>
+                    <p>Tratamiento de conducto indoloro con tecnología moderna. Conserva tu diente natural.</p>
+                </div>
+                <div class="servicio-card reveal">
+                    <div class="servicio-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Odontopediatría</h3>
+                    <p>Atención dental especializada para los más pequeños. Cuidamos la salud bucal de tus hijos.</p>
+                </div>
+                <div class="servicio-card reveal">
+                    <div class="servicio-icon">
+                        <i class="fas fa-hand-holding-medical"></i>
+                    </div>
+                    <h3>Periodoncia</h3>
+                    <p>Tratamiento de encías y tejidos de soporte. Previene y trata enfermedades periodontales.</p>
+                </div>
+                <div class="servicio-card reveal">
+                    <div class="servicio-icon">
+                        <i class="fas fa-scalpel"></i>
+                    </div>
+                    <h3>Cirugía Oral</h3>
+                    <p>Extracciones complejas y procedimientos quirúrgicos con especialistas experimentados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMOCIONES -->
+    <section class="promociones" id="promociones">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">
+                    <i class="fas fa-tag"></i>
+                    Ofertas Especiales
+                </div>
+                <h2 class="section-title">Nuestras <span>Promociones</span></h2>
+                <p class="section-subtitle">Precios accesibles para cuidar tu sonrisa. Agenda tu hora hoy.</p>
+            </div>
+            <div class="promos-grid">
+                <div class="promo-card reveal">
+                    <div class="promo-header">
+                        <h3 class="promo-title">Limpieza Dental</h3>
+                        <span class="promo-price">$29.999</span>
+                    </div>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Elimina sarro y placa profesionalmente</li>
+                        <li><i class="fas fa-check"></i> Previene caries y enfermedades de encías</li>
+                        <li><i class="fas fa-check"></i> Recupera el brillo natural</li>
+                        <li><i class="fas fa-check"></i> Atención rápida y sin dolor</li>
+                    </ul>
+                    <a href="https://wa.me/56920157657?text=Hola,%20quiero%20agendar%20una%20limpieza%20dental" class="promo-cta">Agendar Ahora</a>
+                </div>
+                <div class="promo-card reveal">
+                    <div class="promo-header">
+                        <h3 class="promo-title">Ortodoncia Metálica</h3>
+                        <span class="promo-price">$129.000</span>
+                    </div>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Instalación completa de brackets</li>
+                        <li><i class="fas fa-check"></i> Control y seguimiento mensual</li>
+                        <li><i class="fas fa-check"></i> Brackets resistentes y cómodos</li>
+                        <li><i class="fas fa-check"></i> Sonrisa armónica y funcional</li>
+                    </ul>
+                    <a href="https://wa.me/56920157657?text=Hola,%20quiero%20información%20sobre%20ortodoncia" class="promo-cta">Agendar Ahora</a>
+                </div>
+                <div class="promo-card reveal">
+                    <div class="promo-header">
+                        <h3 class="promo-title">Carillas Dentales</h3>
+                        <span class="promo-price">$65.000</span>
+                    </div>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Precio por pieza dental</li>
+                        <li><i class="fas fa-check"></i> Corrige color, forma y tamaño</li>
+                        <li><i class="fas fa-check"></i> Materiales de alta resistencia</li>
+                        <li><i class="fas fa-check"></i> Resultados duraderos y naturales</li>
+                    </ul>
+                    <a href="https://wa.me/56920157657?text=Hola,%20quiero%20información%20sobre%20carillas" class="promo-cta">Agendar Ahora</a>
+                </div>
+                <div class="promo-card reveal">
+                    <div class="promo-header">
+                        <h3 class="promo-title">Corona Dental</h3>
+                        <span class="promo-price">$300.000</span>
+                    </div>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Restaura dientes fracturados</li>
+                        <li><i class="fas fa-check"></i> Alta estética y resistencia</li>
+                        <li><i class="fas fa-check"></i> Diseño a medida</li>
+                        <li><i class="fas fa-check"></i> Resultado natural</li>
+                    </ul>
+                    <a href="https://wa.me/56920157657?text=Hola,%20quiero%20información%20sobre%20coronas" class="promo-cta">Agendar Ahora</a>
+                </div>
+                <div class="promo-card reveal">
+                    <div class="promo-header">
+                        <h3 class="promo-title">Tratamiento de Conducto</h3>
+                        <span class="promo-price">$190.000</span>
+                    </div>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Elimina dolor e infección</li>
+                        <li><i class="fas fa-check"></i> Conserva tu diente natural</li>
+                        <li><i class="fas fa-check"></i> Procedimiento indoloro</li>
+                        <li><i class="fas fa-check"></i> Tecnología moderna</li>
+                    </ul>
+                    <a href="https://wa.me/56920157657?text=Hola,%20quiero%20información%20sobre%20conducto" class="promo-cta">Agendar Ahora</a>
+                </div>
+                <div class="promo-card reveal">
+                    <div class="promo-header">
+                        <h3 class="promo-title">Restauración con Resina</h3>
+                        <span class="promo-price">$35.000</span>
+                    </div>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Repara dientes fracturados</li>
+                        <li><i class="fas fa-check"></i> Devuelve forma y función</li>
+                        <li><i class="fas fa-check"></i> Materiales de alta calidad</li>
+                        <li><i class="fas fa-check"></i> Resultado imperceptible</li>
+                    </ul>
+                    <a href="https://wa.me/56920157657?text=Hola,%20quiero%20agendar%20una%20restauración" class="promo-cta">Agendar Ahora</a>
+                </div>
+                <div class="promo-card reveal">
+                    <div class="promo-header">
+                        <h3 class="promo-title">Prótesis Removibles</h3>
+                        <span class="promo-price">$300.000</span>
+                    </div>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Recupera función y estética</li>
+                        <li><i class="fas fa-check"></i> Solución cómoda y segura</li>
+                        <li><i class="fas fa-check"></i> Diseño personalizado</li>
+                        <li><i class="fas fa-check"></i> Ajuste perfecto</li>
+                    </ul>
+                    <a href="https://wa.me/56920157657?text=Hola,%20quiero%20información%20sobre%20prótesis" class="promo-cta">Agendar Ahora</a>
+                </div>
+                <div class="promo-card reveal">
+                    <div class="promo-header">
+                        <h3 class="promo-title">Exodoncia</h3>
+                        <span class="promo-price">$65.000</span>
+                    </div>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Extracción segura y sin dolor</li>
+                        <li><i class="fas fa-check"></i> Para infecciones o daño avanzado</li>
+                        <li><i class="fas fa-check"></i> Procedimiento rápido</li>
+                        <li><i class="fas fa-check"></i> Recuperación guiada</li>
+                    </ul>
+                    <a href="https://wa.me/56920157657?text=Hola,%20quiero%20información%20sobre%20exodoncia" class="promo-cta">Agendar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="nosotros" id="nosotros">
+        <div class="container">
+            <div class="nosotros-content">
+                <div class="nosotros-visual reveal">
+                    <div class="nosotros-image">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <div class="nosotros-float-card">
+                        <div class="nosotros-float-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="nosotros-float-text">
+                            <strong>+10 Años</strong>
+                            <span>de experiencia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nosotros-text reveal">
+                    <h2>Una sonrisa puede <span>cambiarlo todo</span></h2>
+                    <p>En el Centro Especializado en Sonrisas creemos que una sonrisa puede cambiarlo todo. Nacimos con una idea simple pero poderosa: brindar una atención odontológica cercana, honesta y de calidad, sin presupuestos inflados ni tratamientos innecesarios.</p>
+                    <p>Nuestro equipo está conformado por profesionales con más de 10 años de experiencia, comprometidos con entregar soluciones efectivas y resultados naturales. Cada diagnóstico que entregamos refleja lo que realmente necesita el paciente, con transparencia y confianza.</p>
+                    <div class="nosotros-features">
+                        <div class="nosotros-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Equipo experimentado</span>
+                        </div>
+                        <div class="nosotros-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Atención amable</span>
+                        </div>
+                        <div class="nosotros-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tecnología moderna</span>
+                        </div>
+                        <div class="nosotros-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Precios justos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section class="equipo">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">
+                    <i class="fas fa-user-md"></i>
+                    Nuestro Equipo
+                </div>
+                <h2 class="section-title">Profesionales <span>Calificados</span></h2>
+                <p class="section-subtitle">Un equipo de especialistas comprometidos con tu salud bucal.</p>
+            </div>
+            <div class="equipo-grid">
+                <div class="equipo-card reveal">
+                    <div class="equipo-photo">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="equipo-info">
+                        <h3>Dr. Marco Chávez</h3>
+                        <p>Implantología</p>
+                    </div>
+                </div>
+                <div class="equipo-card reveal">
+                    <div class="equipo-photo">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="equipo-info">
+                        <h3>Dra. Cristian Morales</h3>
+                        <p>Rehabilitación Oral</p>
+                    </div>
+                </div>
+                <div class="equipo-card reveal">
+                    <div class="equipo-photo">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="equipo-info">
+                        <h3>Equipo de Especialistas</h3>
+                        <p>+10 años de experiencia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Contáctanos
+                </div>
+                <h2 class="section-title">Agenda tu <span>Hora</span></h2>
+                <p class="section-subtitle">Estamos en el corazón de Linares. Ven a visitarnos o contáctanos por WhatsApp.</p>
+            </div>
+            <div class="contacto-content">
+                <div class="contacto-info reveal">
+                    <h2>Información de <span>Contacto</span></h2>
+                    <p>Estamos aquí para ayudarte. Contáctanos por el medio que prefieras.</p>
+                    <div class="contacto-items">
+                        <div class="contacto-item">
+                            <div class="contacto-item-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contacto-item-text">
+                                <strong>Dirección</strong>
+                                <span>O'Higgins 439-A, Linares</span>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-item-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contacto-item-text">
+                                <strong>Teléfono</strong>
+                                <span>+56 9 2015 7657</span>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-item-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contacto-item-text">
+                                <strong>WhatsApp</strong>
+                                <span>+56 9 2015 7657</span>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-item-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contacto-item-text">
+                                <strong>Email</strong>
+                                <span>recepcion@clinicaces.cl</span>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-item-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contacto-item-text">
+                                <strong>Horario</strong>
+                                <span>Lun - Sáb: 9:00 - 19:30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contacto-form reveal">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="servicio">Servicio de interés</label>
+                            <select id="servicio" name="servicio" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="limpieza">Limpieza Dental</option>
+                                <option value="ortodoncia">Ortodoncia</option>
+                                <option value="implantes">Implantes</option>
+                                <option value="blanqueamiento">Blanqueamiento</option>
+                                <option value="carillas">Carillas</option>
+                                <option value="endodoncia">Endodoncia</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="mapa reveal">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3274.8!2d-71.5956!3d-35.8464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDUwJzQ3LjAiUyA3McKwMzUnNDQuMiJX!5e0!3m2!1ses!2scl!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <div class="nav-logo-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <div class="nav-logo-text">Clínica <span>CES</span></div>
+                    </a>
+                    <p>Centro Especializado en Sonrisas. Atención odontológica cercana, honesta y de calidad en Linares.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/56920157657"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Ortodoncia</a></li>
+                        <li><a href="#servicios">Implantes</a></li>
+                        <li><a href="#servicios">Blanqueamiento</a></li>
+                        <li><a href="#servicios">Carillas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Clínica</h4>
+                    <ul>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#promociones">Promociones</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="tel:+56920157657">+56 9 2015 7657</a></li>
+                        <li><a href="mailto:recepcion@clinicaces.cl">recepcion@clinicaces.cl</a></li>
+                        <li><a href="#">O'Higgins 439-A, Linares</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Clínica CES - Centro Especializado en Sonrisas. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="https://wa.me/56920157657?text=Hola,%20quiero%20agendar%20una%20hora" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // Counter animation
+        const counters = document.querySelectorAll('.stat-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current).toLocaleString();
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target.toLocaleString();
+                        }
+                    };
+                    updateCounter();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const servicio = document.getElementById('servicio').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const whatsappMsg = `Hola, soy ${nombre}. Me interesa el servicio de ${servicio}. Mi teléfono es ${telefono}. ${mensaje}`;
+            const whatsappUrl = `https://wa.me/56920157657?text=${encodeURIComponent(whatsappMsg)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
